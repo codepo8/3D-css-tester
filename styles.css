@@ -1,0 +1,198 @@
+* { 
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 15px;
+  font-family: helvetica, arial, sans-serif;
+  background: #ccc;
+  background: -moz-linear-gradient(#ffc, #369);
+  background: -webkit-linear-gradient(#ffc, #369);
+  background: -ms-linear-gradient(#ffc, #369);
+  background: -o-linear-gradient(#ffc, #369);
+  background: linear-gradient(#ffc, #369);
+}
+body {
+  font-size: 15px;
+  font-family: helvetica,arial,sans-serif;
+}
+footer, section, header { 
+  display:block;
+}
+h1 {
+  text-align: center;
+  font-size: 32px;
+  color: #369;
+  padding: 10px 0;
+}
+input[type="number"] { 
+  width: 50px;
+}
+label span, fieldset span {
+  position: absolute;
+  left: -2000px;
+}
+fieldset {
+  margin-bottom: 10px;
+  border: none;
+}
+fieldset fieldset {
+  margin-bottom: 5px;
+}
+legend {
+  font-weight: bold;
+  color: #030;
+  padding: 5px 0;
+}
+fieldset fieldset legend {
+  color: #333;
+}
+
+section {
+  background: #f8f8f8;
+  border-radius: 10px;
+  width: 800px;
+  position: relative;
+  margin: 0 auto;
+  min-height: 600px;
+}
+#cube{
+  background: rgba(0,0,100, 0.3);
+  text-decoration: none;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+     -moz-transform: rotateX(0) rotateY(0) rotateZ(0);
+      -ms-transform: rotateX(0) rotateY(0) rotateZ(0);
+       -o-transform: rotateX(0) rotateY(0) rotateZ(0);
+          transform: rotateX(0) rotateY(0) rotateZ(0);
+}
+fieldset div {
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+  overflow: hidden;
+  height: 118px;
+}
+fieldset div.hide {
+  height: 0;
+}
+
+#xaxis {
+  -moz-transform-style: preserve-3d;
+  -moz-transform: translate3d(-100px,0,0);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translate3d(-100px,0,0);
+  -ms-transform-style: preserve-3d;
+  -ms-transform: translate3d(-100px,0,0);
+  -o-transform-style: preserve-3d;
+  -o-transform: translate3d(-100px,0,0);
+  transform-style: preserve-3d;
+  transform: translate3d(-100px,0,0);
+  border-bottom: black 1px solid;
+  color: blue;
+  width: 400px;
+  display: block;
+  position: absolute;
+  top: 100px;
+  height: 1px;
+}
+#yaxis{
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateZ(-90deg) translate3d(0,-100px,0);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateZ(-90deg) translate3d(0,-100px,0);
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateZ(-90deg) translate3d(0,-100px,0);
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateZ(-90deg) translate3d(0,-100px,0);
+  transform-style: preserve-3d;
+  transform: rotateZ(-90deg) translate3d(0,-100px,0);
+  border-bottom: green 1px solid;
+  color: green;
+  width: 400px;
+  display: block;
+  position: absolute;
+  top: 100px;
+  height: 1px;
+}
+#zaxis {
+  -moz-transform-style: preserve-3d;
+  -moz-transform: rotateY(90deg) translate3d(0,0,-100px);
+  -ms-transform-style: preserve-3d;
+  -ms-transform: rotateY(90deg) translate3d(0,0,-100px);
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: rotateY(90deg) translate3d(0,0,-100px);
+  -o-transform-style: preserve-3d;
+  -o-transform: rotateY(90deg) translate3d(0,0,-100px);
+  transform-style: preserve-3d;
+  transform: rotateY(90deg) translate3d(0,0,-100px);
+  border-bottom: red 1px solid;
+  color: red;
+  width: 400px;
+  display: block;
+  position: absolute;
+  top: 100px;
+  height: 1px;    
+}
+#logos {
+  position: absolute;
+  top: 0;
+  -moz-transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 1;
+}
+#logos.hidden {
+  opacity: 0.3;
+}
+form {
+  background: #ccc;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 10px;
+  width: 220px;
+  border-radius: 5px;
+}
+#code {
+  position: absolute;
+  top: 260px;
+  left: 10px;
+  width: 530px;
+  height: 280px;
+  -moz-transition: 1s;
+  -webkit-transition: 1s;
+  -o-transition: 1s;
+  -ms-transition: 1s;
+  transition: 1s;
+  z-index: 1;
+}
+#code.full {
+  top: 20px;
+  z-index: 10;
+  height: 530px;
+}
+textarea {
+  border:1px solid #333;
+  background: transparent;
+  font-size: 12px;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+footer {
+  margin: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+footer a {
+  color: #000;
+}

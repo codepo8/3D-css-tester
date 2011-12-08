@@ -220,8 +220,8 @@ function changevalues() {
 }
 
 function getanimations(full) {
-  var css = '';
-  if ( rx.checked || ry.checked || rz.checked ) {
+  var css = '', animname = 'upyourscache' + new Date().getTime();
+    if ( rx.checked || ry.checked || rz.checked ) {
     var from = '', to = '';
     if( rx.checked ) { from += 'rotateX(0) '; }
     if( ry.checked ) { from += 'rotateY(0) '; }
@@ -231,38 +231,38 @@ function getanimations(full) {
     if( rz.checked ) { to += 'rotateZ(360deg) '; }
     if(full){
       css += '#cube {\n'+
-        '-moz-animation: iliketomoveitmoveit 5s infinite linear;\n'+
-        '-ms-animation: iliketomoveitmoveit 5s infinite linear;\n'+
-        '-webkit-animation: iliketomoveitmoveit 5s infinite linear;\n'+
-        '-o-animation: iliketomoveitmoveit 5s infinite linear;\n'+
-        'animation: iliketomoveitmoveit 5s infinite linear;\n'+
+        '-moz-animation: ' + animname + ' 5s infinite linear;\n'+
+        '-ms-animation: ' + animname + ' 5s infinite linear;\n'+
+        '-webkit-animation: ' + animname + ' 5s infinite linear;\n'+
+        '-o-animation: ' + animname + ' 5s infinite linear;\n'+
+        'animation: ' + animname + ' 5s infinite linear;\n'+
       '\n}\n'+
-      '@-moz-keyframes iliketomoveitmoveit {\n'+
+      '@-moz-keyframes ' + animname + ' {\n'+
         '0% { -moz-transform: ' + from + ';}\n'+
         '100% { -moz-transform: ' + to + ';}\n'+
       '}\n'+
-      '@-webkit-keyframes iliketomoveitmoveit {\n'+
+      '@-webkit-keyframes ' + animname + ' {\n'+
         '0% { -webkit-transform: ' + from + ';}\n'+
         '100% { -webkit-transform: ' + to + ';}\n'+
       '}\n'+
-      '@-ms-keyframes iliketomoveitmoveit {\n'+
+      '@-ms-keyframes ' + animname + ' {\n'+
         '0% { -ms-transform: ' + from + ';}\n'+
         '100% { -ms-transform: ' + to + ';}\n'+
       '}\n'+
-      '@-o-keyframes iliketomoveitmoveit {\n'+
+      '@-o-keyframes ' + animname + ' {\n'+
         '0% { -o-transform: ' + from + ';}\n'+
         '100% { -o-transform: ' + to + ';}\n'+
       '}\n'+ 
-      '@keyframes iliketomoveitmoveit {\n'+
+      '@keyframes ' + animname + ' {\n'+
         '0% { transform: ' + from + ';}\n'+
         '100% { transform: ' + to + ';}\n'+
       '}\n';
 
     } else {
       css += '#cube {\n'+
-        '-' + pfx + '-animation: iliketomoveitmoveit 5s infinite linear;'+
+        '-' + pfx + '-animation: ' + animname + ' 5s infinite linear;'+
       '\n}\n'+
-      '@-' + pfx + '-keyframes iliketomoveitmoveit {\n'+
+      '@-' + pfx + '-keyframes ' + animname + ' {\n'+
         '0% { '+
         '-' + pfx + '-transform: ' + from + ';}\n'+
         '100% {'+

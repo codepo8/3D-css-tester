@@ -16,8 +16,20 @@ body {
   font-size: 15px;
   font-family: helvetica,arial,sans-serif;
 }
-footer, section, header { 
+footer, section, header, aside, video { 
   display:block;
+}
+aside {
+  width: 800px;
+  margin: 10px auto;
+  z-index: 20;
+}
+aside h2 {
+  text-align: center;
+  color: #000;
+}
+aside video {
+  margin: 10px auto;
 }
 h1 {
   text-align: center;

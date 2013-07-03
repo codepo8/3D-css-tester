@@ -1,6 +1,6 @@
 var css, old = null,
     fm = dqs('form'),
-    p = dqs('#perspective'), 
+    p = dqs('#perspective'),
     pr = dqs('#preserve'),
     l = dqs('#logos'),
     code = dqs('#code'),
@@ -13,7 +13,7 @@ var css, old = null,
     f = dqs('#front'), fbf = dqs('#fbf'),
     fl = dqs('#fl'), fx = dqs('#fx'), fy = dqs('#fy'), fz = dqs('#fz'),
     frx = dqs('#frx'), fry = dqs('#fry'), frz = dqs('#frz'),
-    
+  
     b = dqs('#back'), bbf = dqs('#bbf'),
     bl = dqs('#bl'), bx = dqs('#bx'), by = dqs('#by'), bz = dqs('#bz'),
     brx = dqs('#brx'), bry = dqs('#bry'), brz = dqs('#brz'),
@@ -51,9 +51,6 @@ fm.addEventListener('submit', function(ev) {
   ev.preventDefault();
 }, false);
 
-var pfx = document.body.style['MozTransform'] !== undefined ? 'moz' : 'webkit';
-// ^ Will update as needed :)
-
 changevalues();
 
 function createfull() {
@@ -66,10 +63,7 @@ function createfull() {
   '  position:absolute;'+
   '  top: 0px;'+
   '  left: 150px;'+
-  '  -moz-perspective: ' + p.value + 'px;\n '+
-  '  -ms-perspective: ' + p.value + 'px;\n '+
   '  -webkit-perspective: ' + p.value + 'px;\n '+
-  '  -o-perspective: ' + p.value + 'px;\n '+
   '  perspective: ' + p.value + 'px; '+
   '\n}\n'+
   '#cube {\n'+
@@ -78,14 +72,8 @@ function createfull() {
   '  margin: 30px auto;\n'+
   '  height: 200px;'+
   '  width: 200px;\n'+
-  '  -moz-transform-style: '+(pr.checked ? 'preserve-3d' : 'flat')+';\n'+
-  '  -moz-transform:' + tf[0] + ';\n'+
   '  -webkit-transform-style: '+(pr.checked ? 'preserve-3d' : 'flat')+';\n'+
   '  -webkit-transform: ' + tf[0] + ';\n'+
-  '  -ms-transform-style: '+(pr.checked ? 'preserve-3d' : 'flat')+';\n'+
-  '  -ms-transform: ' + tf[0] + ';\n'+
-  '  -o-transform-style: '+(pr.checked ? 'preserve-3d' : 'flat')+';\n'+
-  '  -o-transform: ' + tf[0] + ';\n'+
   '  transform-style: '+(pr.checked ? 'preserve-3d' : 'flat')+';\n'+
   '  transform: ' + tf[0] + ';\n'+
   '\n}\n';
@@ -95,14 +83,8 @@ function createfull() {
       '  position: absolute;'+
       '  height: 200px;'+
       '  width: 200px;\n'+
-      '  -moz-backface-visibility: '+fbfv+';\n'+
-      '  -moz-transform: '+ tf[1] +';\n'+
       '  -webkit-backface-visibility: '+fbfv+';\n'+
       '  -webkit-transform: '+ tf[1] +';\n'+
-      '  -ms-backface-visibility: '+fbfv+';\n'+
-      '  -ms-transform: '+ tf[1] +';\n'+
-      '  -o-backface-visibility: '+fbfv+';\n'+
-      '  -o-transform: '+ tf[1] +';\n'+
       '  backface-visibility: '+fbfv+';\n'+
       '  transform: '+ tf[1] +';'+
       '\n}\n';
@@ -115,14 +97,8 @@ function createfull() {
     '  position: absolute;'+
     '  height: 200px;'+
     '  width: 200px;\n'+
-    '  -moz-backface-visibility: '+bbfv+';\n'+
-    '  -moz-transform: '+ tf[2] +';\n'+
-    '  -ms-backface-visibility: '+bbfv+';\n'+
-    '  -ms-transform: '+ tf[2] +';\n'+
     '  -webkit-backface-visibility: '+bbfv+';\n'+
     '  -webkit-transform: '+ tf[2] +';\n'+
-    '  -o-backface-visibility: '+bbfv+';\n'+
-    '  -o-transform:'+ tf[2] +';\n'+
     '  backface-visibility: '+bbfv+';\n'+
     '  transform:'+ tf[2] +';'+
     '\n}\n';
@@ -170,8 +146,9 @@ function changevalues() {
   '#logos {\n'+
   '  position:absolute;'+
   '  top: 0px;'+
-  '  left: 150px;'+
-  '  -' + pfx + '-perspective: ' + p.value + 'px; '+
+  '  left: 150px;\n'+
+  '  -webkit-perspective: ' + p.value + 'px; '+
+  '  perspective: ' + p.value + 'px;\n '+
   '\n}\n'+
   '#cube {\n'+
   '  display: block;'+
@@ -179,9 +156,12 @@ function changevalues() {
   '  margin: 30px auto;\n'+
   '  height: 200px;'+
   '  width: 200px;\n'+
-  '  -' + pfx + '-transform-style: ' + 
+  '  -webkit-transform-style: ' +
   (pr.checked ? 'preserve-3d' : 'flat') + ';\n'+
-  '  -' + pfx + '-transform: '+tf[0]+';'+
+  '  -webkit-transform: '+tf[0]+';\n'+
+  '  transform-style: ' +
+  (pr.checked ? 'preserve-3d' : 'flat') + ';\n'+
+  '  transform: '+tf[0]+';'+
   '\n}\n';
   if (fl.checked) {
     css += ''+
@@ -189,8 +169,10 @@ function changevalues() {
       '  position: absolute;'+
       '  height: 200px;'+
       '  width: 200px;\n'+
-      '  -' + pfx + '-backface-visibility: ' + fbfv + ';\n'+
-      '  -' + pfx + '-transform: ' + tf[1] + ';'+
+      '  -webkit-backface-visibility: ' + fbfv + ';\n'+
+      '  -webkit-transform: ' + tf[1] + ';\n'+
+      '  backface-visibility: ' + fbfv + ';\n'+
+      '  transform: ' + tf[1] + ';'+
       '\n}\n';
   } else {
     css += '#front{display:none;}\n';
@@ -201,8 +183,10 @@ function changevalues() {
     '  position: absolute;'+
     '  height: 200px;'+
     '  width: 200px;\n'+
-    '  -' + pfx + '-backface-visibility: ' + bbfv + ';\n'+
-    '  -' + pfx + '-transform: ' + tf[2] + ';'+
+    '  -webkit-backface-visibility: ' + bbfv + ';\n'+
+    '  -webkit-transform: ' + tf[2] + ';\n'+
+    '  backface-visibility: ' + bbfv + ';\n'+
+    '  transform: ' + tf[2] + ';'+
     '\n}\n';
   } else {
     css += '#back{display:none}';
@@ -231,47 +215,39 @@ function getanimations(full) {
     if( rz.checked ) { to += 'rotateZ(360deg) '; }
     if(full){
       css += '#cube {\n'+
-        '-moz-animation: ' + animname + ' 5s infinite linear;\n'+
-        '-ms-animation: ' + animname + ' 5s infinite linear;\n'+
-        '-webkit-animation: ' + animname + ' 5s infinite linear;\n'+
-        '-o-animation: ' + animname + ' 5s infinite linear;\n'+
-        'animation: ' + animname + ' 5s infinite linear;\n'+
+        '  -webkit-animation: ' + animname + ' 5s infinite linear;\n'+
+        '  animation: ' + animname + ' 5s infinite linear;\n'+
       '\n}\n'+
-      '@-moz-keyframes ' + animname + ' {\n'+
-        '0% { -moz-transform: ' + from + ';}\n'+
-        '100% { -moz-transform: ' + to + ';}\n'+
-      '}\n'+
       '@-webkit-keyframes ' + animname + ' {\n'+
-        '0% { -webkit-transform: ' + from + ';}\n'+
-        '100% { -webkit-transform: ' + to + ';}\n'+
+        '  0% { -webkit-transform: ' + from + ';}\n'+
+        '  100% { -webkit-transform: ' + to + ';}\n'+
       '}\n'+
-      '@-ms-keyframes ' + animname + ' {\n'+
-        '0% { -ms-transform: ' + from + ';}\n'+
-        '100% { -ms-transform: ' + to + ';}\n'+
-      '}\n'+
-      '@-o-keyframes ' + animname + ' {\n'+
-        '0% { -o-transform: ' + from + ';}\n'+
-        '100% { -o-transform: ' + to + ';}\n'+
-      '}\n'+ 
       '@keyframes ' + animname + ' {\n'+
-        '0% { transform: ' + from + ';}\n'+
-        '100% { transform: ' + to + ';}\n'+
+        '  0% { transform: ' + from + ';}\n'+
+        '  100% { transform: ' + to + ';}\n'+
       '}\n';
 
     } else {
       css += '#cube {\n'+
-        '-' + pfx + '-animation: ' + animname + ' 5s infinite linear;'+
+        '-webkit-animation: ' + animname + ' 5s infinite linear;'+
+        'animation: ' + animname + ' 5s infinite linear;'+
       '\n}\n'+
-      '@-' + pfx + '-keyframes ' + animname + ' {\n'+
-        '0% { '+
-        '-' + pfx + '-transform: ' + from + ';}\n'+
-        '100% {'+
-        '-' + pfx + '-transform: ' + to + '; }\n'+
+      '@-webkit-keyframes ' + animname + ' {\n'+
+        '  0% { '+
+        '  -webkit-transform: ' + from + ';}\n'+
+        '  100% {'+
+        '  -webkit-transform: ' + to + '; }\n'+
+      '}\n'+
+      '@keyframes ' + animname + ' {\n'+
+        '  0% { '+
+        '  transform: ' + from + ';}\n'+
+        '  100% {'+
+        '  transform: ' + to + '; }\n'+
       '}\n';
     }
   }
   return css;
 }
-function dqs(str) { 
+function dqs(str) {
   return document.querySelector(str);
 }
